@@ -55,6 +55,7 @@ const StyledBenefits = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
   padding: 7vw 5vw 0 5vw;
 
   h2 {
@@ -81,7 +82,7 @@ const BenefitsSection = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 5vw;
 
   div {
     background: #0e8784;
