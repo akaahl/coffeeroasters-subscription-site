@@ -5,24 +5,46 @@ import logo from "../assets/shared/desktop/logo.svg";
 
 const Nav = () => {
   return (
-    <Navbar>
+    <StyledNav>
       <img src={logo} alt="logo" />
 
-      <NavLinks></NavLinks>
-    </Navbar>
+      <ul>
+        <li>
+          <p>Home</p>
+        </li>
+        <li>
+          <p>About Us</p>
+        </li>
+        <li>
+          <p>Create Your Plan</p>
+        </li>
+      </ul>
+    </StyledNav>
   );
 };
 
-const Navbar = styled.div`
+const StyledNav = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
   justify-content: space-between;
-`;
 
-const NavLinks = styled(motion.ul)`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 10px;
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-left: 3rem;
+
+      p {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        color: #83888f;
+        letter-spacing: 1px;
+      }
+    }
+  }
 `;
 
 export default Nav;
