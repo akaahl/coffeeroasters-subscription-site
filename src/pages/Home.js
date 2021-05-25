@@ -1,15 +1,17 @@
-import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import Collection from "../components/Collection";
-import Benefits from "../components/Benefits";
+import BenefitsHeader from "../components/Benefits";
+import BenefitsList from "../components/BenefitsList";
+import HowItWorks from "../components/HowItWorks";
 
 const Home = () => {
   return (
     <>
-      <Nav />
       <Hero />
       <Collection />
-      <Benefits />
+      <BenefitsHeader />
+      <BenefitsList />
+      <HowItWorks />
     </>
   );
 };

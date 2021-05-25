@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import logo from "../assets/shared/desktop/logo.svg";
@@ -9,15 +10,21 @@ const Nav = () => {
       <img src={logo} alt="logo" />
 
       <ul>
-        <li>
-          <p>Home</p>
-        </li>
-        <li>
-          <p>About Us</p>
-        </li>
-        <li>
-          <p>Create Your Plan</p>
-        </li>
+        <Link to="/">
+          <li>
+            <p>Home</p>
+          </li>
+        </Link>
+        <Link to="/about">
+          <li>
+            <p>About Us</p>
+          </li>
+        </Link>
+        <Link to="/plan">
+          <li>
+            <p>Create Your Plan</p>
+          </li>
+        </Link>
       </ul>
     </StyledNav>
   );
@@ -33,6 +40,10 @@ const StyledNav = styled.div`
     display: flex;
     list-style: none;
 
+    a {
+      text-decoration: none;
+    }
+
     li {
       margin-left: 3rem;
 
@@ -43,6 +54,12 @@ const StyledNav = styled.div`
         color: #83888f;
         letter-spacing: 1px;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      display: none;
     }
   }
 `;

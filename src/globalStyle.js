@@ -8,14 +8,19 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding: 1.5rem 5rem 2.5rem 5rem;
+        padding: 2vw 5vw 2.5vw 5vw;
         font-family: 'Barlow', sans-serif;
         background: #fefcf7;
         min-height: 100vh;
+
+        @media (max-width: 768px) {
+            padding-top: 5vw;
+        }
         
     }
 
     button {
+        display:block;
         font-family: 'Fraunces', san-serif;
         border-radius: 10px;
         padding: 1rem 2rem;
@@ -38,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 800;
     }
 
-    h2, h4 {
+    h2, h3, h4 {
         font-family: 'Fraunces', sans-serif;
     }
 
