@@ -1,10 +1,17 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { pageTransition } from "../components/animation";
+import HeroPlan from "../components/HeroPlan";
+import PlanSteps from "../components/PlanSteps";
+import PlanPreferences from "../components/PlanPreferences";
 
 const Plan = () => {
   return (
-    <div>
-      <h2>Plan</h2>
-    </div>
+    <motion.div variants={pageTransition} initial="out" animate="in" exit="out">
+      <HeroPlan />
+      <PlanSteps />
+      <PlanPreferences />
+    </motion.div>
   );
 };
 

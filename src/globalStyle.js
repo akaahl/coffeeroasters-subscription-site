@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding: 2vw 5vw 2.5vw 5vw;
+        padding: 3vw 6.5vw 2.5vw 6.5vw;
         font-family: 'Barlow', sans-serif;
         background: #fefcf7;
         min-height: 100vh;
