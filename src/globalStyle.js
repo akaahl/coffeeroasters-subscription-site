@@ -30,9 +30,10 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         color: #fefcf7;
         cursor: pointer;
-        transition: background 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
+            transform: scale(1.1);
             background: #66d2cf;
         }
     }

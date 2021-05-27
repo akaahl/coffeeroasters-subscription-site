@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import arrow from "../assets/plan/desktop/icon-arrow.svg";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
@@ -9,6 +10,7 @@ const CoffeePlan = () => {
         <h3>
           How do you drink your coffee? <img src={arrow} alt="arrow icon" />
         </h3>
+
         <div className="selections">
           <div className="content">
             <h4>Capsule</h4>
@@ -130,14 +132,26 @@ const CoffeePlan = () => {
         </div>
       </section>
 
-      <div className="order-summary"></div>
+      <div className="order-summary">
+        <p>Order Summary</p>
+        <h4>
+          "I drink my coffee as <span>text here</span>, with a{" "}
+          <span>text here</span> type of bean. <span>text here</span> ground ala{" "}
+          <span>text here</span>, sent to me <span>text here</span>."
+        </h4>
+      </div>
+
+      <div className="button-container">
+        <button type="button">Create your plan</button>
+      </div>
     </StyledContainer>
   );
 };
 
 const StyledContainer = styled.div`
   width: 100%;
-  margin-left: 8rem;
+  margin-left: 7rem;
+  position: relative;
 
   section {
     &:not(:first-child) {
@@ -189,6 +203,80 @@ const StyledContainer = styled.div`
           line-height: 150%;
         }
       }
+    }
+  }
+
+  .order-summary {
+    background: url("${summaryBg}") no-repeat;
+    background-size: 100% 100%;
+    background-position: cover;
+    width: 100%;
+    margin-top: 10vw;
+    border-radius: 10px;
+    padding: 2rem 4rem;
+
+    p {
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: #83888f;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      color: #fefcf7;
+      margin-top: 1rem;
+      span {
+        margin-top: -20px;
+        border-bottom: 2px solid #0e8784;
+        color: transparent;
+        padding: 0;
+      }
+    }
+  }
+
+  .button-container {
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      h3 {
+        font-size: 2rem;
+      }
+
+      .selections {
+        display: flex;
+        flex-direction: column;
+
+        .content {
+          margin-top: 2rem;
+          padding-bottom: 2rem;
+
+          h4,
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .order-summary {
+      padding: 2rem 1.5rem;
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .button-container {
+      justify-content: center;
     }
   }
 `;

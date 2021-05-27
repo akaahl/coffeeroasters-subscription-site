@@ -35,7 +35,11 @@ const PlanSidebar = () => {
 };
 
 const StyledSidenav = styled.aside`
-  width: 40%;
+  width: 45%;
+  height: 100%;
+  position: sticky;
+  top: 10%;
+
   ul {
     list-style: none;
 
@@ -54,7 +58,7 @@ const StyledSidenav = styled.aside`
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 2vw;
         color: #0e8784;
         font-family: "Fraunces", sans-serif;
         font-weight: 700;
@@ -66,6 +70,10 @@ const StyledSidenav = styled.aside`
         }
       }
     }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 
