@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { motion } from "framer-motion";
 import { pageTransition } from "../components/animation";
 import HeroPlan from "../components/HeroPlan";

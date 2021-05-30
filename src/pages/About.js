@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import HeroAbout from "../components/HeroAbout";
 import ContentOne from "../components/ContentOne";
 import ContentTwo from "../components/ContentTwo";
@@ -8,12 +7,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <motion.div
-      variants={pageTransition}
-      initial="out"
-      animate="in"
-      exit='out'
-    >
+    <motion.div variants={pageTransition} initial="out" animate="in" exit="out">
       <HeroAbout />
       <ContentOne />
       <ContentTwo />

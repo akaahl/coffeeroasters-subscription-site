@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import arrow from "../assets/plan/desktop/icon-arrow.svg";
 import { motion } from "framer-motion";
@@ -11,32 +11,81 @@ const PreferenceSection = ({
   contentOne,
   contentTwo,
   contentThree,
+  id,
 }) => {
+  const selectionContents = [
+    {
+      heading: h4One,
+      content: contentOne,
+    },
+    {
+      heading: h4Two,
+      content: contentTwo,
+    },
+    {
+      heading: h4Three,
+      content: contentThree,
+    },
+  ];
+
   const [content, setContent] = useState(false);
-  console.log(content);
+
+  const [selected, setSelected] = useState({
+    selectedIndex: null,
+    activeSelectedIndex: [{ id: 1 }, { id: 2 }, { id: 3 }],
+  });
+
+  const inputRef = useRef();
+
+  const [coffeeMethod, setCoffeeMethod] = useState(null);
+
+  const clickHandler = (index) => {
+    setSelected({
+      ...selected,
+      selectedIndex: selected.activeSelectedIndex[index],
+    });
+
+    if (index === 0) {
+      setCoffeeMethod(h4One);
+    }
+
+    if (index === 1) {
+      setCoffeeMethod(h4Two);
+    }
+
+    if (index === 2) {
+      setCoffeeMethod(h4Three);
+    }
+  };
+
+  console.log(coffeeMethod);
+
+  const activeSelected = (index) => {
+    if (selected.selectedIndex === selected.activeSelectedIndex[index]) {
+      return "content selected";
+    } else {
+      return "content";
+    }
+  };
 
   return (
-    <StyledSection layout id="3" className={content ? "active" : ""}>
+    <StyledSection layout id={id} className={content ? "active" : ""}>
       <motion.h3 layout onClick={() => setContent(!content)}>
         {question} <img src={arrow} alt="arrow icon" />
       </motion.h3>
 
       {content ? (
         <div className="selections">
-          <div className="content">
-            <h4>{h4One}</h4>
-            <p>{contentOne}</p>
-          </div>
-
-          <div className="content">
-            <h4>{h4Two}</h4>
-            <p>{contentTwo}</p>
-          </div>
-
-          <div className="content">
-            <h4>{h4Three}</h4>
-            <p>{contentThree}</p>
-          </div>
+          {selectionContents.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => clickHandler(index)}
+              className={activeSelected(index)}
+            >
+              <h4 ref={inputRef}>{item.heading}</h4>
+              <p>{item.content}</p>
+            </div>
+          ))}
         </div>
       ) : (
         ""
@@ -87,6 +136,19 @@ const StyledSection = styled(motion.section)`
 
       &:hover {
         background: #fdd6ba;
+      }
+
+      &.selected {
+        background: #0e8784;
+
+        h4,
+        p {
+          color: #fefcf7;
+        }
+      }
+
+      &:active {
+        transform: scale(0.98);
       }
 
       h4,

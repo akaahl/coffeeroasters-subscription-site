@@ -1,4 +1,4 @@
-import { Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo2 from "../assets/shared/desktop/logo2.svg";
 import facebookIcon from "../assets/shared/desktop/icon-facebook.svg";

@@ -7,6 +7,12 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 4rem;
+
+    }
+
     body {
         padding: 3vw 6.5vw 2.5vw 6.5vw;
         font-family: 'Barlow', sans-serif;

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import arrow from "../assets/plan/desktop/icon-arrow.svg";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
 import PreferenceSection from "./PreferenceSection";
 import { AnimateSharedLayout } from "framer-motion";
@@ -18,6 +17,7 @@ const CoffeePlan = () => {
           contentTwo="For pour over or drip methods like Aeropress, Chemex, and V60."
           contentThree="Dense and finely ground beans for an intense, flavorful
               experience."
+          id="1"
         />
         <PreferenceSection
           question="What type of coffee?"
@@ -27,6 +27,7 @@ const CoffeePlan = () => {
           contentOne="Distinct, high quality coffee from a specific family-owned farm."
           contentTwo="Just like regular coffee, except the caffeine has been removed."
           contentThree="Combination of two or three dark roasted beans of organic coffees."
+          id="2"
         />
         <PreferenceSection
           question="How much would you like?"
@@ -36,6 +37,7 @@ const CoffeePlan = () => {
           contentOne="Perfect for the solo drinker. Yields about 12 delicious cups."
           contentTwo="Perfect option for a couple. Yields about 40 delectable cups."
           contentThree="Perfect for offices and events. Yields about 90 delightful cups."
+          id="3"
         />
         <PreferenceSection
           question="Want us to grind them?"
@@ -45,6 +47,7 @@ const CoffeePlan = () => {
           contentOne="Best choice if you cherish the full sensory experience."
           contentTwo="For drip or pour-over coffee methods such as V60 or Aeropress."
           contentThree="Course ground beans specially suited for french press coffee."
+          id="4"
         />
         <PreferenceSection
           question="How often should we deliver?"
@@ -54,6 +57,7 @@ const CoffeePlan = () => {
           contentOne="$7.20 per shipment. Includes free first-class shipping."
           contentTwo="$9.60 per shipment. Includes free priority shipping."
           contentThree="$12.00 per shipment. Includes free priority shipping."
+          id="5"
         />
       </AnimateSharedLayout>
 
