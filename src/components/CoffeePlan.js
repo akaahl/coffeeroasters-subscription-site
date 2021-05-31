@@ -1,10 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
 import PreferenceSection from "./PreferenceSection";
 import { AnimateSharedLayout } from "framer-motion";
+import Modal from "./Modal";
 
 const CoffeePlan = () => {
+  const [coffeeMethod, setCoffeeMethod] = useState(null);
+  const [coffeeType, setCoffeeType] = useState(null);
+  const [quantity, setQuantity] = useState(null);
+  const [grindOption, setGrindOption] = useState(null);
+  const [delivery, setDelivery] = useState(null);
+
+  const optionsArray = [
+    grindOption,
+    coffeeMethod,
+    coffeeType,
+    quantity,
+    delivery,
+  ];
+
+  const text = (
+    <p className="p-text">
+      ground ala{" "}
+      <span className={optionsArray[0] ? "active" : ""}>
+        {grindOption ? grindOption : "text here"}
+      </span>
+    </p>
+  );
+
+  const summaryText = (
+    <h4>
+      "I drink my coffee as{" "}
+      <span className={optionsArray[1] ? "active" : ""}>
+        {coffeeMethod ? coffeeMethod : "text here"}
+      </span>
+      , with a{" "}
+      <span className={optionsArray[2] ? "active" : ""}>
+        {coffeeType ? coffeeType : "text here"}
+      </span>{" "}
+      type of bean.{" "}
+      <span className={optionsArray[3] ? "active" : ""}>
+        {quantity ? quantity : "text here"}
+      </span>{" "}
+      {coffeeMethod === "Capsule" ? "" : text} , sent to me{" "}
+      <span className={optionsArray[4] ? "active" : ""}>
+        {delivery ? delivery : "text here"}
+      </span>
+      ."
+    </h4>
+  );
+
+  const evaluateClass = () => {
+    if (coffeeMethod === "Capsule") {
+      return optionsArray.slice(1).every((item) => item) ? "" : "disabled";
+    }
+
+    if (coffeeMethod !== "Capsule") {
+      return optionsArray.every((item) => item) ? "" : "disabled";
+    }
+  };
+
   return (
     <StyledContainer>
       <AnimateSharedLayout>
@@ -18,6 +74,9 @@ const CoffeePlan = () => {
           contentThree="Dense and finely ground beans for an intense, flavorful
               experience."
           id="1"
+          state={coffeeMethod}
+          setState={setCoffeeMethod}
+          coffeeMethod={coffeeMethod}
         />
         <PreferenceSection
           question="What type of coffee?"
@@ -28,6 +87,9 @@ const CoffeePlan = () => {
           contentTwo="Just like regular coffee, except the caffeine has been removed."
           contentThree="Combination of two or three dark roasted beans of organic coffees."
           id="2"
+          state={coffeeType}
+          setState={setCoffeeType}
+          coffeeMethod={coffeeMethod}
         />
         <PreferenceSection
           question="How much would you like?"
@@ -38,6 +100,9 @@ const CoffeePlan = () => {
           contentTwo="Perfect option for a couple. Yields about 40 delectable cups."
           contentThree="Perfect for offices and events. Yields about 90 delightful cups."
           id="3"
+          state={quantity}
+          setState={setQuantity}
+          coffeeMethod={coffeeMethod}
         />
         <PreferenceSection
           question="Want us to grind them?"
@@ -48,6 +113,9 @@ const CoffeePlan = () => {
           contentTwo="For drip or pour-over coffee methods such as V60 or Aeropress."
           contentThree="Course ground beans specially suited for french press coffee."
           id="4"
+          state={grindOption}
+          setState={setGrindOption}
+          coffeeMethod={coffeeMethod}
         />
         <PreferenceSection
           question="How often should we deliver?"
@@ -58,21 +126,24 @@ const CoffeePlan = () => {
           contentTwo="$9.60 per shipment. Includes free priority shipping."
           contentThree="$12.00 per shipment. Includes free priority shipping."
           id="5"
+          state={delivery}
+          setState={setDelivery}
+          coffeeMethod={coffeeMethod}
         />
       </AnimateSharedLayout>
 
       <div className="order-summary">
-        <p>Order Summary</p>
-        <h4>
-          "I drink my coffee as <span>text here</span>, with a{" "}
-          <span>text here</span> type of bean. <span>text here</span> ground ala{" "}
-          <span>text here</span>, sent to me <span>text here</span>."
-        </h4>
+        <p className="summary">Order Summary</p>
+        {summaryText}
       </div>
 
       <div className="button-container">
-        <button type="button">Create your plan</button>
+        <button type="button" className={evaluateClass()}>
+          Create your plan
+        </button>
       </div>
+
+      <Modal summaryText={summaryText} />
     </StyledContainer>
   );
 };
@@ -91,7 +162,7 @@ const StyledContainer = styled.div`
     border-radius: 10px;
     padding: 2rem 4rem;
 
-    p {
+    .summary {
       text-transform: uppercase;
       font-size: 1rem;
       color: #83888f;
@@ -101,7 +172,19 @@ const StyledContainer = styled.div`
       font-size: 1.5rem;
       color: #fefcf7;
       margin-top: 1rem;
+
+      .p-text {
+        font-family: "Fraunces", sans-serif;
+        display: inline-block;
+        font-size: 1.5rem;
+        color: #fefcf7;
+      }
+
       span {
+        &.active {
+          border-bottom: none;
+          color: #0e8784;
+        }
         margin-top: -20px;
         border-bottom: 2px solid #0e8784;
         color: transparent;
@@ -115,6 +198,14 @@ const StyledContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+
+    button {
+      &.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
   }
 
   @media (max-width: 1024px) {

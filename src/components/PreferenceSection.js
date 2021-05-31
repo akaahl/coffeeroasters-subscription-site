@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import arrow from "../assets/plan/desktop/icon-arrow.svg";
 import { motion } from "framer-motion";
@@ -12,7 +12,18 @@ const PreferenceSection = ({
   contentTwo,
   contentThree,
   id,
+  state,
+  setState,
+  coffeeMethod,
 }) => {
+  const [content, setContent] = useState(false);
+
+  useEffect(() => {
+    if (id === "4" && coffeeMethod === "Capsule") {
+      setContent(false);
+    }
+  }, [coffeeMethod, id, content]);
+
   const selectionContents = [
     {
       heading: h4One,
@@ -28,16 +39,11 @@ const PreferenceSection = ({
     },
   ];
 
-  const [content, setContent] = useState(false);
-
   const [selected, setSelected] = useState({
     selectedIndex: null,
     activeSelectedIndex: [{ id: 1 }, { id: 2 }, { id: 3 }],
   });
 
-  const inputRef = useRef();
-
-  const [coffeeMethod, setCoffeeMethod] = useState(null);
 
   const clickHandler = (index) => {
     setSelected({
@@ -46,19 +52,17 @@ const PreferenceSection = ({
     });
 
     if (index === 0) {
-      setCoffeeMethod(h4One);
+      setState(h4One);
     }
 
     if (index === 1) {
-      setCoffeeMethod(h4Two);
+      setState(h4Two);
     }
 
     if (index === 2) {
-      setCoffeeMethod(h4Three);
+      setState(h4Three);
     }
   };
-
-  console.log(coffeeMethod);
 
   const activeSelected = (index) => {
     if (selected.selectedIndex === selected.activeSelectedIndex[index]) {
@@ -69,7 +73,17 @@ const PreferenceSection = ({
   };
 
   return (
-    <StyledSection layout id={id} className={content ? "active" : ""}>
+    <StyledSection
+      layout
+      id={id}
+      className={
+        content
+          ? "active"
+          : id === "4" && coffeeMethod === "Capsule"
+          ? "disabled"
+          : ""
+      }
+    >
       <motion.h3 layout onClick={() => setContent(!content)}>
         {question} <img src={arrow} alt="arrow icon" />
       </motion.h3>
@@ -82,7 +96,7 @@ const PreferenceSection = ({
               onClick={() => clickHandler(index)}
               className={activeSelected(index)}
             >
-              <h4 ref={inputRef}>{item.heading}</h4>
+              <h4>{item.heading}</h4>
               <p>{item.content}</p>
             </div>
           ))}
@@ -103,6 +117,15 @@ const StyledSection = styled(motion.section)`
       img {
         transform: rotate(180deg);
       }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    h3 {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 
