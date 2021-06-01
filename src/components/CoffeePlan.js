@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
 import PreferenceSection from "./PreferenceSection";
 import { AnimateSharedLayout } from "framer-motion";
-import Modal from "./Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { activateModal } from "../actions";
 
 const CoffeePlan = () => {
   const [coffeeMethod, setCoffeeMethod] = useState(null);
@@ -23,7 +24,7 @@ const CoffeePlan = () => {
   const text = (
     <p className="p-text">
       ground ala{" "}
-      <span className={optionsArray[0] ? "active" : ""}>
+      <span className={grindOption ? "active" : ""}>
         {grindOption ? grindOption : "text here"}
       </span>
     </p>
@@ -32,19 +33,19 @@ const CoffeePlan = () => {
   const summaryText = (
     <h4>
       "I drink my coffee as{" "}
-      <span className={optionsArray[1] ? "active" : ""}>
+      <span className={coffeeMethod ? "active" : ""}>
         {coffeeMethod ? coffeeMethod : "text here"}
       </span>
       , with a{" "}
-      <span className={optionsArray[2] ? "active" : ""}>
+      <span className={coffeeType ? "active" : ""}>
         {coffeeType ? coffeeType : "text here"}
       </span>{" "}
       type of bean.{" "}
-      <span className={optionsArray[3] ? "active" : ""}>
+      <span className={quantity ? "active" : ""}>
         {quantity ? quantity : "text here"}
       </span>{" "}
       {coffeeMethod === "Capsule" ? "" : text} , sent to me{" "}
-      <span className={optionsArray[4] ? "active" : ""}>
+      <span className={delivery ? "active" : ""}>
         {delivery ? delivery : "text here"}
       </span>
       ."
@@ -60,6 +61,15 @@ const CoffeePlan = () => {
       return optionsArray.every((item) => item) ? "" : "disabled";
     }
   };
+
+  const isModalActive = useSelector((state) => state.isModalActive);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scroll({
+      bottom: 0,
+    });
+  }, [isModalActive]);
 
   return (
     <StyledContainer>
@@ -138,12 +148,14 @@ const CoffeePlan = () => {
       </div>
 
       <div className="button-container">
-        <button type="button" className={evaluateClass()}>
+        <button
+          type="button"
+          className={evaluateClass()}
+          onClick={() => dispatch(activateModal())}
+        >
           Create your plan
         </button>
       </div>
-
-      <Modal summaryText={summaryText} />
     </StyledContainer>
   );
 };
@@ -151,7 +163,7 @@ const CoffeePlan = () => {
 const StyledContainer = styled.div`
   width: 100%;
   margin-left: 7rem;
-  position: relative;
+  /* position: relative; */
 
   .order-summary {
     background: url("${summaryBg}") no-repeat;

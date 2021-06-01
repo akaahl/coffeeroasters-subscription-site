@@ -14,15 +14,21 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding: 3vw 6.5vw 2.5vw 6.5vw;
+        /* padding: 3vw 6.5vw 2.5vw 6.5vw; */
         font-family: 'Barlow', sans-serif;
         background: #fefcf7;
         min-height: 100vh;
+        position: relative;
 
         @media (max-width: 768px) {
             padding-top: 5vw;
         }
         
+    }
+
+    .App {
+        margin: 0 6.5vw 0 6.5vw;
+        padding: 3vw 0 2.5vw 0;
     }
 
     button {
@@ -50,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 800;
     }
 
-    h2, h3, h4 {
+    h2, h3, h4, h5 {
         font-family: 'Fraunces', sans-serif;
     }
 

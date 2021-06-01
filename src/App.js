@@ -7,9 +7,14 @@ import Nav from "./pages/Nav";
 import FooterNav from "./pages/FooterNav";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
+import Modal from "./components/Modal";
 
 function App() {
   const location = useLocation();
+
+  const isModalActive = useSelector((state) => state.isModalActive);
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -22,6 +27,7 @@ function App() {
         </Switch>
       </AnimatePresence>
       <FooterNav />
+      <Modal />
     </div>
   );
 }
