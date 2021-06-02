@@ -8,9 +8,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; */
         scroll-padding-top: 4rem;
+    }
 
+    a {
+        text-decoration: none;
     }
 
     body {
@@ -19,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
         background: #fefcf7;
         min-height: 100vh;
         position: relative;
+
+        &.modal-active {
+            overflow: hidden;
+        }
 
         @media (max-width: 768px) {
             padding-top: 5vw;

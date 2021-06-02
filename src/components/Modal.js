@@ -3,27 +3,78 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { deactivateModal } from "../actions";
 
-const Modal = ({ summaryText }) => {
+const Modal = ({
+  coffeeMethod,
+  coffeeType,
+  quantity,
+  grindOption,
+  delivery,
+}) => {
   const dispatch = useDispatch();
   const isModalActive = useSelector((state) => state.isModalActive);
+
+  const text = (
+    <p className="p-text">
+      ground ala{" "}
+      <span className={grindOption ? "active" : ""}>
+        {grindOption ? grindOption : "text here"}
+      </span>
+    </p>
+  );
+
+  const summaryText = (
+    <h4>
+      "I drink my coffee as{" "}
+      <span className={coffeeMethod ? "active" : ""}>
+        {coffeeMethod ? coffeeMethod : "text here"}
+      </span>
+      , with a{" "}
+      <span className={coffeeType ? "active" : ""}>
+        {coffeeType ? coffeeType : "text here"}
+      </span>{" "}
+      type of bean.{" "}
+      <span className={quantity ? "active" : ""}>
+        {quantity ? quantity : "text here"}
+      </span>{" "}
+      {coffeeMethod === "Capsule" ? "" : text} , sent to me{" "}
+      <span className={delivery ? "active" : ""}>
+        {delivery ? delivery : "text here"}
+      </span>
+      ."
+    </h4>
+  );
 
   return (
     <StyledModal
       className={isModalActive ? "active" : ""}
-      onClick={() => dispatch(deactivateModal())}
+      onClick={() => {
+        dispatch(deactivateModal());
+        document.body.classList.remove("modal-active");
+      }}
     >
       <div className="inner-container">
         <h2 className="title">Order Summary</h2>
         <div className="text-container">
-          {/* {summaryText}{" "} */}
+          {summaryText}{" "}
           <p className="confirm-order">
             Is this correct? You can proceed to checkout or go back to plan
             selection if something is off. Subscription discount codes can also
             be redeemed at the checkout.
           </p>
           <div className="total">
-            <h5>$28.80 / month</h5>
-            <button onClick={() => dispatch(deactivateModal())}>
+            <h5>
+              {delivery === "Every week"
+                ? "$28.80 / month"
+                : delivery === "Every two weeks"
+                ? "$19.20 / month"
+                : "$12 / month"}
+            </h5>
+            <button
+              onClick={() => {
+                dispatch(deactivateModal());
+                document.body.classList.remove("modal-active");
+              }}
+            >
               Checkout
             </button>
           </div>
@@ -50,9 +101,9 @@ const StyledModal = styled.div`
 
   .inner-container {
     height: 90vh;
-    width: 45%;
+    width: 40%;
     border-radius: 10px;
-    margin-bottom: 5vh;
+    /* margin-bottom: 5vh; */
 
     h2 {
       color: #fefcf7;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
   return (
@@ -38,7 +39,19 @@ const HowItWorks = () => {
           </p>
         </div>
       </StyledHow>
-      <button type="button">Create your plan</button>
+      <Link to="/plan">
+        <button
+          type="button"
+          onClick={() => {
+            window.scroll({
+              top: 0,
+              left: 0,
+            });
+          }}
+        >
+          Create your plan
+        </button>
+      </Link>
     </StyledContainer>
   );
 };

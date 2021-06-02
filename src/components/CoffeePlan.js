@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
 import PreferenceSection from "./PreferenceSection";
 import { AnimateSharedLayout } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { activateModal } from "../actions";
 
-const CoffeePlan = () => {
-  const [coffeeMethod, setCoffeeMethod] = useState(null);
-  const [coffeeType, setCoffeeType] = useState(null);
-  const [quantity, setQuantity] = useState(null);
-  const [grindOption, setGrindOption] = useState(null);
-  const [delivery, setDelivery] = useState(null);
-
+const CoffeePlan = ({
+  coffeeMethod,
+  setCoffeeMethod,
+  coffeeType,
+  setCoffeeType,
+  quantity,
+  setQuantity,
+  grindOption,
+  setGrindOption,
+  delivery,
+  setDelivery,
+}) => {
   const optionsArray = [
     grindOption,
     coffeeMethod,
@@ -62,14 +67,7 @@ const CoffeePlan = () => {
     }
   };
 
-  const isModalActive = useSelector((state) => state.isModalActive);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    window.scroll({
-      bottom: 0,
-    });
-  }, [isModalActive]);
 
   return (
     <StyledContainer>
@@ -151,7 +149,14 @@ const CoffeePlan = () => {
         <button
           type="button"
           className={evaluateClass()}
-          onClick={() => dispatch(activateModal())}
+          onClick={() => {
+            dispatch(activateModal());
+            document.body.classList.add("modal-active");
+            window.scroll({
+              top: 5000,
+              left: 0,
+            });
+          }}
         >
           Create your plan
         </button>

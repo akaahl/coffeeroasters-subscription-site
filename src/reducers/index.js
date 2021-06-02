@@ -1,9 +1,19 @@
 import modalActive from "./modalActive";
-import coffeeState from "./coffeeState";
+import {
+  coffeeMethod,
+  quantity,
+  coffeeType,
+  grindOption,
+  delivery,
+} from "./coffeeReducers";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-  coffee: coffeeState,
+  coffeeMethod: coffeeMethod,
+  coffeeType: coffeeType,
+  quantity: quantity,
+  grindOption: grindOption,
+  delivery: delivery,
   isModalActive: modalActive,
 });
 

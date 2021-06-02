@@ -6,18 +6,25 @@ import instagramIcon from "../assets/shared/desktop/icon-instagram.svg";
 import twitterIcon from "../assets/shared/desktop/icon-twitter.svg";
 
 const FooterNav = () => {
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+  };
+
   return (
     <StyledFooter>
       <img src={logo2} alt="logo" />
 
       <ul className="nav-container">
-        <Link to="/">
+        <Link to="/" onClick={scrollToTop}>
           <li>Home</li>
         </Link>
-        <Link to="/about">
+        <Link to="/about" onClick={scrollToTop}>
           <li>About Us</li>
         </Link>
-        <Link to="plan">
+        <Link to="/plan" onClick={scrollToTop}>
           <li>Create your plan</li>
         </Link>
       </ul>

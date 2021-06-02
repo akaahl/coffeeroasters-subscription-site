@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import heroImg from "../assets/home/desktop/image-hero-coffeepress.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -10,7 +11,19 @@ const Hero = () => {
         curated artisan coffees from our best roasters delivered directly to
         your door, at your schedule.
       </p>
-      <button type="button">Create your plan</button>
+      <Link to="/plan">
+        <button
+          type="button"
+          onClick={() => {
+            window.scroll({
+              top: 0,
+              left: 0,
+            });
+          }}
+        >
+          Create your plan
+        </button>
+      </Link>
     </HeroSection>
   );
 };

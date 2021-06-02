@@ -1,10 +1,14 @@
 export const pageTransition = {
   in: {
     opacity: 1,
-    x: 0,
+    transform: {
+      scale: 1,
+    },
   },
   out: {
     opacity: 0,
-    x: "-100vw",
+    transform: {
+      scale: 1.5,
+    },
   },
 };
