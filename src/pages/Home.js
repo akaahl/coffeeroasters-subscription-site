@@ -8,7 +8,13 @@ import { pageTransition } from "../components/animation";
 
 const Home = () => {
   return (
-    <motion.div variants={pageTransition} initial="out" animate="in" exit="out">
+    <motion.div
+      variants={pageTransition}
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={{ duration: 0.5 }}
+    >
       <Hero />
       <Collection />
       <BenefitsHeader />

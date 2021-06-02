@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         /* scroll-behavior: smooth; */
         scroll-padding-top: 4rem;
+        overflow-x: hidden
     }
 
     a {

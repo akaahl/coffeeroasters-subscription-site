@@ -3,10 +3,20 @@ import granEspresso from "../assets/home/desktop/image-gran-espresso.png";
 import planalto from "../assets/home/desktop/image-planalto.png";
 import piccollo from "../assets/home/desktop/image-piccollo.png";
 import danche from "../assets/home/desktop/image-danche.png";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { reveal } from "./animation";
 
 const Collection = () => {
+  const [element, controls] = useScroll();
+
   return (
-    <OurCollection>
+    <OurCollection
+      ref={element}
+      variants={reveal}
+      animate={controls}
+      initial="initial"
+    >
       <h2>our collection</h2>
 
       <Products>
@@ -49,7 +59,7 @@ const Collection = () => {
   );
 };
 
-const OurCollection = styled.div`
+const OurCollection = styled(motion.div)`
   margin-top: 9vw;
 
   h2 {
