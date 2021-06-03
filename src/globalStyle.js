@@ -8,9 +8,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        /* scroll-behavior: smooth; */
-        scroll-padding-top: 4rem;
-        overflow-x: hidden
+        scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+
     }
 
     a {
@@ -23,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
         background: #fefcf7;
         min-height: 100vh;
         position: relative;
+        overflow-x: hidden;
+
 
         &.modal-active {
             overflow: hidden;

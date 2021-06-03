@@ -2,10 +2,20 @@ import styled from "styled-components";
 import imageOne from "../assets/about/desktop/image-commitment.jpg";
 import tabletImageOne from "../assets/about/tablet/image-commitment.jpg";
 import mobileImageOne from "../assets/about/mobile/image-commitment.jpg";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { fadeReveal } from "./animation";
 
 const ContentOne = () => {
+  const [element, controls] = useScroll();
+
   return (
-    <StyledSection>
+    <StyledSection
+      ref={element}
+      variants={fadeReveal}
+      animate={controls}
+      initial="initial"
+    >
       <img src={imageOne} alt="barista" className="laptop-img" />
       <img src={tabletImageOne} alt="barista tablet" className="tablet-img" />
       <img src={mobileImageOne} alt="barista mobile" className="mobile-img" />
@@ -29,7 +39,7 @@ const ContentOne = () => {
   );
 };
 
-const StyledSection = styled.section`
+const StyledSection = styled(motion.section)`
   height: 100%;
   margin-top: 10vw;
   padding: 0 7vw;

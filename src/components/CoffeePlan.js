@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import summaryBg from "../assets/plan/desktop/bg-order-summary.png";
 import PreferenceSection from "./PreferenceSection";
@@ -17,6 +17,7 @@ const CoffeePlan = ({
   setGrindOption,
   delivery,
   setDelivery,
+  modalRef,
 }) => {
   const optionsArray = [
     grindOption,
@@ -68,6 +69,7 @@ const CoffeePlan = ({
   };
 
   const dispatch = useDispatch();
+  const ref = useRef();
 
   return (
     <StyledContainer>
@@ -140,26 +142,27 @@ const CoffeePlan = ({
         />
       </AnimateSharedLayout>
 
-      <div className="order-summary">
+      <div className="order-summary" ref={ref}>
         <p className="summary">Order Summary</p>
         {summaryText}
       </div>
 
       <div className="button-container">
-        <button
-          type="button"
+        <a
+          href="#modal"
           className={evaluateClass()}
           onClick={() => {
             dispatch(activateModal());
             document.body.classList.add("modal-active");
-            window.scroll({
-              top: 5000,
-              left: 0,
-            });
+            // window.scroll({
+            //   top: 5000,
+            //   left: 0,
+            // });
+            // ref.current.scrollIntoView();
           }}
         >
           Create your plan
-        </button>
+        </a>
       </div>
     </StyledContainer>
   );

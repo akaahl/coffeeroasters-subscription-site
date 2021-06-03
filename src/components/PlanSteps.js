@@ -1,9 +1,18 @@
 import styled from "styled-components";
 import bgSteps from "../assets/plan/desktop/bg-steps.png";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { fadeReveal } from "./animation";
 
 const PlanSteps = () => {
+  const [element, controls] = useScroll();
   return (
-    <StyledContainer>
+    <StyledContainer
+      ref={element}
+      variants={fadeReveal}
+      animate={controls}
+      initial="initial"
+    >
       <div className="grid-container">
         <div className="circle"></div>
         <h2>01</h2>
@@ -40,7 +49,7 @@ const PlanSteps = () => {
   );
 };
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(motion.div)`
   background: url("${bgSteps}") no-repeat;
   background-size: 100% 100%;
   background-position: cover;

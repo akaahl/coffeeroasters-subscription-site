@@ -15,6 +15,7 @@ const Plan = ({
   setGrindOption,
   delivery,
   setDelivery,
+  modalRef,
 }) => {
   return (
     <motion.div
@@ -37,6 +38,7 @@ const Plan = ({
         setGrindOption={setGrindOption}
         delivery={delivery}
         setDelivery={setDelivery}
+        modalRef={modalRef}
       />
     </motion.div>
   );

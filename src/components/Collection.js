@@ -16,6 +16,7 @@ const Collection = () => {
       variants={reveal}
       animate={controls}
       initial="initial"
+      transition={{ duration: 0.4 }}
     >
       <h2>our collection</h2>
 

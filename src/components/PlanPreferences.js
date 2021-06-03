@@ -13,6 +13,7 @@ const PlanPreferences = ({
   setGrindOption,
   delivery,
   setDelivery,
+  modalRef,
 }) => {
   return (
     <StyledContainer>
@@ -28,6 +29,7 @@ const PlanPreferences = ({
         setGrindOption={setGrindOption}
         delivery={delivery}
         setDelivery={setDelivery}
+        modalRef={modalRef}
       />
     </StyledContainer>
   );

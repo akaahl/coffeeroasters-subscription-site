@@ -9,6 +9,7 @@ const Modal = ({
   quantity,
   grindOption,
   delivery,
+  modalRef,
 }) => {
   const dispatch = useDispatch();
   const isModalActive = useSelector((state) => state.isModalActive);
@@ -52,7 +53,7 @@ const Modal = ({
         document.body.classList.remove("modal-active");
       }}
     >
-      <div className="inner-container">
+      <div className="inner-container" id="modal">
         <h2 className="title">Order Summary</h2>
         <div className="text-container">
           {summaryText}{" "}
@@ -92,17 +93,24 @@ const StyledModal = styled.div`
   bottom: 0;
   left: 0;
   display: none;
-  align-items: flex-end;
-  justify-content: center;
+
+  /* align-items: flex-end;
+  justify-content: center; */
 
   &.active {
-    display: flex;
+    display: block;
   }
 
   .inner-container {
+    position: relative;
+    top: 125rem;
+    left: 50%;
+    transform: translateX(-50%);
     height: 90vh;
-    width: 40%;
+    width: 50vw;
     border-radius: 10px;
+    scroll-padding-top: 10rem;
+
     /* margin-bottom: 5vh; */
 
     h2 {
@@ -155,6 +163,10 @@ const StyledModal = styled.div`
           font-size: 2rem;
         }
       }
+    }
+
+    @media (max-width: 1024px) {
+      width: 70vw;
     }
   }
 `;

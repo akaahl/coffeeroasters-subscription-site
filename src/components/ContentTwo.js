@@ -1,10 +1,20 @@
 import styled from "styled-components";
 import backgroundImg from "../assets/about/desktop/bg-quality.png";
 import coffeeCup from "../assets/about/desktop/image-quality.jpg";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { slideFromRight } from "./animation";
 
 const ContentTwo = () => {
+  const [element, controls] = useScroll();
+
   return (
-    <StyledContent>
+    <StyledContent
+      ref={element}
+      variants={slideFromRight}
+      animate={controls}
+      initial="initial"
+    >
       <div className="content-container">
         <h3>Uncompromising quality</h3>
         <p>
@@ -21,7 +31,7 @@ const ContentTwo = () => {
   );
 };
 
-const StyledContent = styled.section`
+const StyledContent = styled(motion.section)`
   background: url("${backgroundImg}") no-repeat;
   background-size: 100% 100%;
   width: 100%;

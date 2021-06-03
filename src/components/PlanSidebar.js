@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { slideIn } from "./animation";
 
 const PlanSidebar = () => {
   const listItem = [
@@ -45,8 +48,15 @@ const PlanSidebar = () => {
     }
   };
 
+  const [element, controls] = useScroll();
+
   return (
-    <StyledSidenav>
+    <StyledSidenav
+      ref={element}
+      variants={slideIn}
+      animate={controls}
+      initial="initial"
+    >
       <ul>
         {listItem.map((item, index) => (
           <li
@@ -66,7 +76,7 @@ const PlanSidebar = () => {
   );
 };
 
-const StyledSidenav = styled.aside`
+const StyledSidenav = styled(motion.aside)`
   width: 45%;
   height: 100%;
   position: sticky;

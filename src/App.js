@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import GlobalStyle from "./globalStyle";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,6 +16,7 @@ function App() {
   const [quantity, setQuantity] = useState(null);
   const [grindOption, setGrindOption] = useState(null);
   const [delivery, setDelivery] = useState(null);
+  const modalRef = useRef();
 
   return (
     <div className="App">
@@ -40,6 +41,7 @@ function App() {
                 setGrindOption={setGrindOption}
                 delivery={delivery}
                 setDelivery={setDelivery}
+                modalRef={modalRef}
               />
             )}
           />
@@ -52,6 +54,7 @@ function App() {
         quantity={quantity}
         grindOption={grindOption}
         delivery={delivery}
+        modalRef={modalRef}
       />
     </div>
   );

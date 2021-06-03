@@ -1,9 +1,19 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { slideIn } from "./animation";
 
 const HowItWorks = () => {
+  const [element, controls] = useScroll();
+
   return (
-    <StyledContainer>
+    <StyledContainer
+      ref={element}
+      variants={slideIn}
+      animate={controls}
+      initial="initial"
+    >
       <h4>How it works</h4>
       <StyledHow>
         <div className="grid-container">
@@ -56,7 +66,7 @@ const HowItWorks = () => {
   );
 };
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(motion.div)`
   width: 90%;
   margin: 0 auto;
 
