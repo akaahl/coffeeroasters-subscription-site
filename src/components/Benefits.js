@@ -18,7 +18,7 @@ const StyledBenefits = styled.div`
   background: url(${background}) no-repeat;
   background-size: 100% 100%;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   margin-top: 12rem;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,37 @@ const StyledBenefits = styled.div`
     color: #fefcf7;
     opacity: 0.6;
     text-align: center;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 5vw;
+    }
+
+    p {
+      /* font-size: 1rem; */
+    }
+  }
+
+  @media (min-height: 500px) and (max-height: 600px) {
+    height: 85vh !important;
+  }
+
+  @media (min-height: 640px) and (max-height: 700px) {
+    height: 72vh !important;
+  }
+
+  @media (min-height: 800px) {
+    height: 55vh !important;
+  }
+
+  @media (min-height: 1000px) {
+    height: 45vh !important;
+  }
+
+  @media (min-height: 1300px) {
+    height: 35vh !important;
   }
 `;
 

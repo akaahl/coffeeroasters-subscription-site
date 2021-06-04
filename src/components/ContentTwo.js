@@ -101,9 +101,17 @@ const StyledContent = styled(motion.section)`
 
       h3 {
         margin-top: 3vw;
-        font-size: 4vw;
+        font-size: 6vw;
       }
 
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    .content-container {
       p {
         font-size: 1rem;
       }

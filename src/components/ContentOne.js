@@ -111,8 +111,8 @@ const StyledSection = styled(motion.section)`
       }
 
       h3 {
-        margin-top: 4vw;
-        font-size: 4vw;
+        margin-top: 10vw;
+        font-size: 7vw;
       }
 
       p {

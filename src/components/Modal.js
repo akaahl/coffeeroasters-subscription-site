@@ -109,7 +109,6 @@ const StyledModal = styled.div`
     height: 90vh;
     width: 50vw;
     border-radius: 10px;
-    scroll-padding-top: 10rem;
 
     /* margin-bottom: 5vh; */
 
@@ -167,6 +166,70 @@ const StyledModal = styled.div`
 
     @media (max-width: 1024px) {
       width: 70vw;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        padding: 1.5rem;
+        font-size: 4vw;
+      }
+
+      .text-container {
+        padding: 1.5rem;
+
+        h4 {
+          font-size: 4vw;
+        }
+
+        .total {
+          h5 {
+            font-size: 3.5vw;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 425px) {
+      h2 {
+        text-align: center;
+      }
+
+      .text-container {
+        h4 {
+          text-align: center;
+        }
+
+        .confirm-order {
+          text-align: center;
+          font-size: 0.8rem;
+        }
+
+        .total {
+          flex-direction: column;
+
+          h5 {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 375px) {
+      h2 {
+        font-size: 5vw;
+      }
+
+      .text-container {
+        h4 {
+          font-size: 5vw;
+        }
+
+        .total {
+          h5 {
+            font-size: 5vw;
+          }
+        }
+      }
     }
   }
 `;

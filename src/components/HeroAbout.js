@@ -55,6 +55,7 @@ const HeroSection = styled.div`
 
   @media (max-width: 425px) {
     background-image: url("${mobileHeroBackground}");
+    padding: 2rem;
 
     h1,
     p {
@@ -63,6 +64,10 @@ const HeroSection = styled.div`
 
     h1 {
       width: 100%;
+    }
+
+    p {
+      font-size: 5vw;
     }
   }
 `;

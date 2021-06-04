@@ -219,7 +219,22 @@ const StyledContainer = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    button {
+    a {
+      font-family: "Fraunces", san-serif;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      background: #0e8784;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fefcf7;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        background: #66d2cf;
+      }
       &.disabled {
         pointer-events: none;
         cursor: not-allowed;

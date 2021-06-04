@@ -92,6 +92,7 @@ const StyledSection = styled.section`
         h4 {
           margin-top: 2rem;
           font-size: 3.5vw;
+          text-align: center;
         }
 
         p {
