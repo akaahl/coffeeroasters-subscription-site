@@ -55,13 +55,19 @@ const Nav = () => {
         src={hamburger}
         alt="hamburger icon"
         className="open"
-        onClick={() => dispatch(openMobileModal())}
+        onClick={() => {
+          dispatch(openMobileModal());
+          document.body.classList.add("modal-active");
+        }}
       />
       <img
         src={closeHamburger}
         alt="close hamburger icon"
         className="close"
-        onClick={() => dispatch(closeMobileModal())}
+        onClick={() => {
+          dispatch(closeMobileModal());
+          document.body.classList.remove("modal-active");
+        }}
       />
     </StyledNav>
   );
@@ -114,6 +120,10 @@ const StyledNav = styled.div`
     }
 
     li {
+      :first-child {
+        margin-top: 4rem;
+      }
+
       p {
         margin: 1.2rem 0;
         text-align: center;
