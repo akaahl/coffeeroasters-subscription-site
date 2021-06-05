@@ -35,17 +35,32 @@ const Nav = () => {
 
       <ul className="mobile-nav">
         <Link to="/">
-          <li onClick={() => dispatch(closeMobileModal())}>
+          <li
+            onClick={() => {
+              dispatch(closeMobileModal());
+              document.body.classList.remove("modal-active");
+            }}
+          >
             <p>Home</p>
           </li>
         </Link>
         <Link to="/about">
-          <li onClick={() => dispatch(closeMobileModal())}>
+          <li
+            onClick={() => {
+              dispatch(closeMobileModal());
+              document.body.classList.remove("modal-active");
+            }}
+          >
             <p>About Us</p>
           </li>
         </Link>
         <Link to="/plan">
-          <li onClick={() => dispatch(closeMobileModal())}>
+          <li
+            onClick={() => {
+              dispatch(closeMobileModal());
+              document.body.classList.remove("modal-active");
+            }}
+          >
             <p>Create Your Plan</p>
           </li>
         </Link>
