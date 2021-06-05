@@ -70,6 +70,22 @@ const HeroSection = styled.div`
       font-size: 5vw;
     }
   }
+
+  @media (min-height: 650px) and (max-height: 700px) {
+    height: 50vh;
+
+    p {
+      font-size: 4vw;
+    }
+  }
+
+  @media (min-height: 1024px) {
+    height: 35vh;
+  }
+
+  @media (min-height: 1300px) {
+    height: 30vh;
+  }
 `;
 
 export default HeroAbout;

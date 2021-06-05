@@ -23,7 +23,7 @@ const HeroSection = styled.div`
   width: 100%;
   margin-top: 3rem;
   padding: 6rem 4rem;
-  height: 65vh;
+  height: 28rem;
   border-radius: 10px;
   font-family: "Fraunces", sans-serif;
 
@@ -48,6 +48,7 @@ const HeroSection = styled.div`
     padding: 4rem;
     position: relative;
     z-index: -1;
+    height: 20rem;
 
     &:after {
       content: "";
@@ -78,7 +79,7 @@ const HeroSection = styled.div`
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 530px) {
     background: url("${imageThree}") no-repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -90,6 +91,14 @@ const HeroSection = styled.div`
 
     p {
       font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    padding: 2rem;
+
+    p {
+      font-size: 0.8rem;
     }
   }
 `;

@@ -81,6 +81,37 @@ const List = styled(motion.div)`
   @media (max-width: 768px) {
     margin-top: -20vw;
   }
+
+  @media (max-width: 375px) {
+    grid-template-columns: 1fr;
+    margin-top: -5vw;
+    width: 80%;
+
+    div {
+      padding: 1rem;
+
+      h4 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  @media (min-height: 600px) {
+    margin-top: -5vw;
+  }
+
+  /* @media (max-height: 650px) {
+    margin-top: -10vw;
+  } */
+
+  @media (min-height: 700px) {
+    margin-top: -10vw;
+  }
 `;
 
 export default BenefitsList;

@@ -9,3 +9,15 @@ export const deactivateModal = () => {
     type: "DEACTIVATE",
   };
 };
+
+export const openMobileModal = () => {
+  return {
+    type: "OPEN",
+  };
+};
+
+export const closeMobileModal = () => {
+  return {
+    type: "CLOSE",
+  };
+};

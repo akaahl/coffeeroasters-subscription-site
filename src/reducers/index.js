@@ -7,6 +7,7 @@ import {
   delivery,
 } from "./coffeeReducers";
 import { combineReducers } from "redux";
+import mobileModalActive from "./mobileModalActive";
 
 const allReducers = combineReducers({
   coffeeMethod: coffeeMethod,
@@ -15,6 +16,7 @@ const allReducers = combineReducers({
   grindOption: grindOption,
   delivery: delivery,
   isModalActive: modalActive,
+  isMobileModalActive: mobileModalActive,
 });
 
 export default allReducers;

@@ -51,6 +51,18 @@ const StyledBenefits = styled.div`
     }
   }
 
+  @media (max-width: 375px) {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 280px) {
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
   @media (min-height: 500px) and (max-height: 600px) {
     height: 85vh !important;
   }
