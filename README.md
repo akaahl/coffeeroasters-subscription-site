@@ -2,6 +2,8 @@
 
 This is a solution to the [Coffeeroasters subscription site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+Demo can be found [here](https://coffeeroasters-subscription-site-puce.vercel.app/)
+
 ### The challenge
 
 Users should be able to:

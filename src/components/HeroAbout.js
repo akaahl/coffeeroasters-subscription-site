@@ -71,13 +71,13 @@ const HeroSection = styled.div`
     }
   }
 
-  @media (min-height: 650px) and (max-height: 700px) {
+  /* @media (min-height: 650px) and (max-height: 700px) {
     height: 50vh;
 
     p {
       font-size: 4vw;
     }
-  }
+  } */
 
   @media (min-height: 1024px) {
     height: 35vh;
